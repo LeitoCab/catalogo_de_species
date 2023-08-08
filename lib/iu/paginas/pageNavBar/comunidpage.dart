@@ -1,5 +1,5 @@
 import 'package:catalogo_species/iu/Widgets/appbar.dart';
-import 'package:catalogo_species/iu/Widgets/cards/species/communitie_card/specie_communitie_card.dart';
+import 'package:catalogo_species/iu/Widgets/cards/species%20and%20comunity/community_card%20copy.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
@@ -15,29 +15,16 @@ class _comunidadesState extends State<comunidades> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarPrincipal(context, 'Comunidades', Icons.search, null),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ListView(
-            children: [
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-              customSpecieCommunitieCard(
-                  context, '', 'title', 'subtitle1', 'subtitle2', 'subtitle3'),
-            ],
-          ),
-        ));
+      appBar: AppBarPrincipal(context, 'Comunidades', Icons.search, null),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (_, index) {
+            return CommunitieCard(index);
+          },
+        ),
+      ),
+    );
   }
 }

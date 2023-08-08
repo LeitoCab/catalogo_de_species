@@ -12,7 +12,7 @@ class Myappp extends StatefulWidget {
 }
 
 class _MyapppState extends State<Myappp> {
-  int selectindex = 1;
+  int selectindex = 0;
   Navigatorbar? navb;
 
   @override

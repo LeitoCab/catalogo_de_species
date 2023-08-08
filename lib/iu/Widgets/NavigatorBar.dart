@@ -41,10 +41,6 @@ class _NavigatorbarState extends State<Navigatorbar> {
               icon: Icon(Icons.groups),
               label: 'Comunidades',
             ),
-            NavigationDestination(
-              icon: Icon(Icons.local_library),
-              label: 'Recetas',
-            ),
           ]),
     );
   }

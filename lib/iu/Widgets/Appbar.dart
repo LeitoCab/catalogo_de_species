@@ -19,9 +19,7 @@ PreferredSizeWidget AppBarPrincipal(
       fontWeight: FontWeight.w700,
     ),
     leading: IconButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
+      onPressed: () {},
       icon: Icon(Iconss ?? Iconss),
     ),
     actions: [

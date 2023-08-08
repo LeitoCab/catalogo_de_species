@@ -2,7 +2,6 @@
 import 'package:catalogo_species/iu/paginas/pageNavBar/comunidpage.dart';
 import 'package:catalogo_species/iu/paginas/pageNavBar/especiepage.dart';
 import 'package:catalogo_species/iu/paginas/pageNavBar/homepage.dart';
-import 'package:catalogo_species/iu/paginas/pageNavBar/recetaspage.dart';
 import 'package:flutter/material.dart';
 
 class RoutesN extends StatelessWidget {
@@ -15,7 +14,6 @@ class RoutesN extends StatelessWidget {
       Homepage(),
       Especies(),
       comunidades(),
-      Recetas()
     ];
     return pages[index];
   }
