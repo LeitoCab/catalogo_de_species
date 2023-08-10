@@ -1,16 +1,67 @@
 import 'package:flutter/material.dart';
 
+import '../../../classcomunity.dart';
 import '../../Widgets/appbar.dart';
 
 class ViewEspecies extends StatelessWidget {
   final int index;
-  const ViewEspecies(this.index, {super.key});
+  final List<Especies> especies = [
+    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+        'característico do Pantanal'),
+    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+        'característico do Pantanal'),
+    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+        'guacamayo rojo y verde '),
+    Especies(
+        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
+    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+        'característico do Pantanal'),
+    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+        'característico do Pantanal'),
+    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+        'guacamayo rojo y verde '),
+    Especies(
+        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
+    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+        'característico do Pantanal'),
+    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+        'característico do Pantanal'),
+    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+        'guacamayo rojo y verde '),
+    Especies(
+        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
+    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+        'característico do Pantanal'),
+    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+        'característico do Pantanal'),
+    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+        'guacamayo rojo y verde '),
+    Especies(
+        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
+    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+        'característico do Pantanal'),
+    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+        'característico do Pantanal'),
+    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+        'guacamayo rojo y verde '),
+    Especies(
+        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
+  ];
+
+  ViewEspecies(this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarPrincipal(
-            context, 'Comunidades', Icons.navigate_before, null),
+            context,
+            'Especies',
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.navigate_before_outlined)),
+            null),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -21,8 +72,8 @@ class ViewEspecies extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                        image: AssetImage('assets/esquina.png'),
+                    image: DecorationImage(
+                        image: AssetImage(especies[index].imagen),
                         fit: BoxFit.cover),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7))),
@@ -74,7 +125,7 @@ class ViewEspecies extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                'title $index',
+                especies[index].titulo,
               ),
               titleTextStyle: const TextStyle(
                 color: Color(0xFF6B5CC9),
@@ -83,7 +134,7 @@ class ViewEspecies extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 height: 1.27,
               ),
-              subtitle: Text('subtitle $index'),
+              subtitle: Text(especies[index].subtitulo1),
               subtitleTextStyle: const TextStyle(
                 color: Color(0xFF201A1B),
                 fontSize: 12,
@@ -150,6 +201,5 @@ class ViewEspecies extends StatelessWidget {
             ),
           ],
         ));
-    ;
   }
 }

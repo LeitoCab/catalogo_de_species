@@ -7,8 +7,8 @@ PreferredSizeWidget AppBarPrincipal(
     // ignore: non_constant_identifier_names
     BuildContext context,
     String title,
+    IconButton lead,
     // ignore: non_constant_identifier_names
-    Iconss,
     shear) {
   return AppBar(
     title: title != ' ' ? Text(title) : null,
@@ -18,10 +18,7 @@ PreferredSizeWidget AppBarPrincipal(
       fontFamily: 'Roboto',
       fontWeight: FontWeight.w700,
     ),
-    leading: IconButton(
-      onPressed: () {},
-      icon: Icon(Iconss ?? Iconss),
-    ),
+    leading: lead,
     actions: [
       IconButton(
         style: const ButtonStyle(

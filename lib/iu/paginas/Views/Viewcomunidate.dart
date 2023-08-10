@@ -1,16 +1,57 @@
 import 'package:flutter/material.dart';
 
+import '../../../classcomunity.dart';
 import '../../Widgets/Appbar.dart';
 
 class ViewComunidate extends StatelessWidget {
+  final List<Comunidades> titulos = [
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+  ];
+
   final int index;
-  const ViewComunidate(this.index);
+  ViewComunidate(this.index, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarPrincipal(
-            context, 'Comunidades', Icons.navigate_before, null),
+            context,
+            'Comunidades',
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.navigate_before_outlined)),
+            null),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -21,8 +62,8 @@ class ViewComunidate extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Container(
                 decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                        image: AssetImage('assets/esquina.png'),
+                    image: DecorationImage(
+                        image: AssetImage(titulos[index].imagen),
                         fit: BoxFit.cover),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7))),
@@ -74,7 +115,7 @@ class ViewComunidate extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                'title $index',
+                titulos[index].titulo,
               ),
               titleTextStyle: const TextStyle(
                 color: Color(0xFF6B5CC9),
@@ -83,7 +124,7 @@ class ViewComunidate extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 height: 1.27,
               ),
-              subtitle: Text('subtitle $index'),
+              subtitle: Text(titulos[index].subtitulo1),
               subtitleTextStyle: const TextStyle(
                 color: Color(0xFF201A1B),
                 fontSize: 12,

@@ -17,7 +17,10 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBarPrincipal(
-            context, 'Amazonía', Icons.search, Icons.account_circle_outlined),
+            context,
+            'Amazonía',
+            IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded)),
+            Icons.account_circle_outlined),
         body: ListView(
           children: <Widget>[
             const Padding(

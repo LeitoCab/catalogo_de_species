@@ -1,10 +1,47 @@
+import 'package:catalogo_species/classcomunity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../paginas/Views/Viewcomunidate.dart';
 
+// ignore: must_be_immutable
 class CommunitieCard extends StatelessWidget {
   final int index;
-  CommunitieCard(this.index);
+  final List<Comunidades> titulos = [
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
+        'Descendencia Amazonica', 'legado cultural'),
+    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
+        'idioma tupi-guarani', 'legado cultural'),
+  ];
+  CommunitieCard(
+    this.index, {
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -26,8 +63,8 @@ class CommunitieCard extends StatelessWidget {
                   width: 62,
                   height: 62,
                   decoration: ShapeDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/especie.png'),
+                      image: DecorationImage(
+                        image: AssetImage(titulos[index].imagen),
                         fit: BoxFit.cover,
                       ),
                       shape: RoundedRectangleBorder(
@@ -40,7 +77,7 @@ class CommunitieCard extends StatelessWidget {
                 ),
                 Wrap(direction: Axis.vertical, children: [
                   Text(
-                    'titulo $index',
+                    titulos[index].titulo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 16,
@@ -50,7 +87,7 @@ class CommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'subtitulo $index',
+                    titulos[index].subtitulo1,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
@@ -59,7 +96,7 @@ class CommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'subtitulo $index',
+                    titulos[index].subtitulo2,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
@@ -68,7 +105,7 @@ class CommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'subtitulo $index',
+                    titulos[index].subtitulo3,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,

@@ -16,11 +16,12 @@ class _EspeciesState extends State<Especies> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarPrincipal(context, 'Especies', Icons.search, null),
+      appBar: AppBarPrincipal(context, 'Especies',
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded)), null),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: 15,
           itemBuilder: (_, index) {
             return customSpecieCommunitieCard(index);
           },
