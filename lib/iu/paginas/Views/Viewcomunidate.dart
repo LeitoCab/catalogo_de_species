@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../../../classcomunity.dart';
@@ -43,7 +45,7 @@ class ViewComunidate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarPrincipal(
+        appBar: appBarPrincipal(
             context,
             'Comunidades',
             IconButton(
@@ -51,6 +53,7 @@ class ViewComunidate extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.navigate_before_outlined)),
+            null,
             null),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 import '../../../classcomunity.dart';
@@ -5,46 +7,46 @@ import '../../Widgets/appbar.dart';
 
 class ViewEspecies extends StatelessWidget {
   final int index;
-  final List<Especies> especies = [
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+  final List<Especiess> especies = [
+    Especiess('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
         'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+    Especiess('assets/e2.png', 'onça pintada', 'America de Sur',
         'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+    Especiess('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
         'guacamayo rojo y verde '),
-    Especies(
+    Especiess(
         'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+    Especiess('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
         'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+    Especiess('assets/e2.png', 'onça pintada', 'America de Sur',
         'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+    Especiess('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
         'guacamayo rojo y verde '),
-    Especies(
+    Especiess(
         'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+    Especiess('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
         'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+    Especiess('assets/e2.png', 'onça pintada', 'America de Sur',
         'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+    Especiess('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
         'guacamayo rojo y verde '),
-    Especies(
+    Especiess(
         'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+    Especiess('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
         'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+    Especiess('assets/e2.png', 'onça pintada', 'America de Sur',
         'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+    Especiess('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
         'guacamayo rojo y verde '),
-    Especies(
+    Especiess(
         'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
+    Especiess('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
         'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
+    Especiess('assets/e2.png', 'onça pintada', 'America de Sur',
         'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
+    Especiess('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
         'guacamayo rojo y verde '),
-    Especies(
+    Especiess(
         'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
   ];
 
@@ -53,7 +55,7 @@ class ViewEspecies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarPrincipal(
+        appBar: appBarPrincipal(
             context,
             'Especies',
             IconButton(

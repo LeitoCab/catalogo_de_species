@@ -1,9 +1,10 @@
-import 'package:catalogo_species/iu/Widgets/appbar.dart';
 import 'package:catalogo_species/iu/Widgets/circleAvatar/circleAvatar.dart';
 import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_comunidades.dart';
 import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_especies.dart';
 
 import 'package:flutter/material.dart';
+
+import '../../Widgets/Appbar.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -16,11 +17,13 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarPrincipal(
-            context,
-            'Amazonía',
-            IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded)),
-            Icons.account_circle_outlined),
+        appBar: appBarPrincipal(
+          context,
+          'Amazonía',
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
+          null,
+          Icons.account_circle_rounded,
+        ),
         body: ListView(
           children: <Widget>[
             const Padding(

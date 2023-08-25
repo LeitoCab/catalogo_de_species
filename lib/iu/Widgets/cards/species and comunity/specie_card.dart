@@ -1,54 +1,17 @@
-import 'package:catalogo_species/iu/paginas/Views/viewEspecies.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../classcomunity.dart';
+// Asegúrate de importar correctamente el servicio
 
-class customSpecieCommunitieCard extends StatelessWidget {
-  final List<Especies> especies = [
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
-        'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
-        'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
-        'guacamayo rojo y verde '),
-    Especies(
-        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
-        'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
-        'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
-        'guacamayo rojo y verde '),
-    Especies(
-        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
-        'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
-        'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
-        'guacamayo rojo y verde '),
-    Especies(
-        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
-        'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
-        'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
-        'guacamayo rojo y verde '),
-    Especies(
-        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-    Especies('assets/e1.jpeg', 'Ariranha', 'Rio Amazonas',
-        'característico do Pantanal'),
-    Especies('assets/e2.png', 'onça pintada', 'America de Sur',
-        'característico do Pantanal'),
-    Especies('assets/e3.jpeg', 'Ara chloropterus', 'America de Sur',
-        'guacamayo rojo y verde '),
-    Especies(
-        'assets/e4.png', 'manatí', 'America y Africa', 'genero: Trichechus'),
-  ];
+class CustomSpecieCommunitieCard extends StatelessWidget {
+  final String image;
+  final String titulo;
+  final String subtitulo;
+  final String tipo;
+  const CustomSpecieCommunitieCard(
+      this.image, this.titulo, this.subtitulo, this.tipo,
+      {Key? key})
+      : super(key: key);
 
-  final int index;
-  customSpecieCommunitieCard(this.index, {super.key});
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -57,13 +20,10 @@ class customSpecieCommunitieCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
-        onTap: () => {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ViewEspecies(index)))
-        },
+        onTap: () => {},
         child: SizedBox(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
                 Ink(
@@ -71,8 +31,7 @@ class customSpecieCommunitieCard extends StatelessWidget {
                   height: 62,
                   decoration: ShapeDecoration(
                       image: DecorationImage(
-                        image: AssetImage(especies[index].imagen),
-                        fit: BoxFit.cover,
+                        image: NetworkImage(image),
                       ),
                       shape: RoundedRectangleBorder(
                         side: const BorderSide(width: 1, color: Colors.orange),
@@ -84,17 +43,17 @@ class customSpecieCommunitieCard extends StatelessWidget {
                 ),
                 Wrap(direction: Axis.vertical, children: [
                   Text(
-                    especies[index].titulo,
+                    titulo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
-                      fontSize: 16,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
                       letterSpacing: 0.15,
                     ),
                   ),
                   Text(
-                    especies[index].subtitulo1,
+                    subtitulo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
@@ -103,7 +62,7 @@ class customSpecieCommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    especies[index].subtitulo2,
+                    tipo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,

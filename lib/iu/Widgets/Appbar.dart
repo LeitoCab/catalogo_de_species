@@ -2,14 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-// ignore: non_constant_identifier_names
-PreferredSizeWidget AppBarPrincipal(
-    // ignore: non_constant_identifier_names
-    BuildContext context,
-    String title,
-    IconButton lead,
-    // ignore: non_constant_identifier_names
-    shear) {
+PreferredSizeWidget appBarPrincipal(
+    BuildContext context, String title, IconButton lead, boton, shear) {
   return AppBar(
     title: title != ' ' ? Text(title) : null,
     titleTextStyle: const TextStyle(
@@ -19,6 +13,7 @@ PreferredSizeWidget AppBarPrincipal(
       fontWeight: FontWeight.w700,
     ),
     leading: lead,
+    bottom: boton,
     actions: [
       IconButton(
         style: const ButtonStyle(
