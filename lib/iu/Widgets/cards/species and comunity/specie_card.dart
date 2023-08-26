@@ -1,3 +1,4 @@
+import 'package:catalogo_species/iu/paginas/Views/viewEspecies.dart';
 import 'package:flutter/material.dart';
 
 // Asegúrate de importar correctamente el servicio
@@ -20,7 +21,10 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
-        onTap: () => {},
+        onTap: () => {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ViewEspecies()))
+        },
         child: SizedBox(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),

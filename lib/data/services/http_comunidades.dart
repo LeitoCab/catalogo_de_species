@@ -1,8 +1,8 @@
 import 'package:catalogo_species/class/class_comunidad.dart';
 import 'package:http/http.dart' as http;
 
-class EspeciesService {
-  static Future<List<Community>> fetchSpecies() async {
+class ComunidadService {
+  static Future<List<Community>> fetchCommunity() async {
     try {
       final response = await http.get(Uri.parse(
           'http://api.amazonia.iiap.gob.pe/api/v1/indigenous-community/'));

@@ -14,7 +14,10 @@ class Especies extends StatefulWidget {
   State<Especies> createState() => _EspeciesState();
 }
 
-class _EspeciesState extends State<Especies> with TickerProviderStateMixin {
+class _EspeciesState extends State<Especies>
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   Future<List<Species>>? especies;
   late TabController _tabController;
   @override
@@ -26,6 +29,7 @@ class _EspeciesState extends State<Especies> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: appBarPrincipal(
           context,
@@ -54,7 +58,7 @@ class _EspeciesState extends State<Especies> with TickerProviderStateMixin {
               icon: Icon(CustomIcons.reptile),
               text: 'Reptiles',
             ),
-            Tab(icon: Icon(CustomIcons.palm), text: 'Plantas'),
+            Tab(icon: Icon(CustomIcons.palm), text: 'Palmeras'),
             Tab(icon: Icon(CustomIcons.tree), text: 'Arboles'),
             Tab(icon: Icon(CustomIcons.insect), text: 'Insectos'),
           ]),
