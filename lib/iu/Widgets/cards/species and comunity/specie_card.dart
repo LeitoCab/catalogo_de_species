@@ -8,6 +8,7 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
   final String titulo;
   final String subtitulo;
   final String tipo;
+
   const CustomSpecieCommunitieCard(
       this.image, this.titulo, this.subtitulo, this.tipo,
       {Key? key})
@@ -22,8 +23,12 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
         onTap: () => {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const ViewEspecies()))
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ViewEspecies(),
+            ),
+          )
         },
         child: SizedBox(
           child: Padding(

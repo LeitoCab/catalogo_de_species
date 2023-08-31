@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../class/Class_especies.dart';
-import '../../../data/services/http_especies.dart';
+import '../../../domain/entities/class_especies.dart';
+import '../../../domain/services/http_especies.dart';
 import '../../Widgets/Appbar.dart';
 import '../../Widgets/cards/species and comunity/specie_card.dart';
+import '../../buscador/search_especie_delegate.dart';
 import '../../colores/custom_icons.dart';
 
 //import '../../Widgets/Appbar.dart';
@@ -18,7 +19,7 @@ class _EspeciesState extends State<Especies>
     with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
-  Future<List<Species>>? especies;
+  late Future<List<Species>> especies;
   late TabController _tabController;
   @override
   void initState() {
@@ -36,9 +37,7 @@ class _EspeciesState extends State<Especies>
           'Especies',
           IconButton(
               onPressed: () {
-                // showSearch(
-                //     context: context,
-                //     delegate: SearchEspecieDelegate(especies));
+                showSearch(context: context, delegate: SearchEspecieDelegate());
               },
               icon: const Icon(Icons.search_rounded)),
           TabBar(controller: _tabController, isScrollable: true, tabs: const [
@@ -104,10 +103,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListAves[index].vcImagen,
-                            speciesListAves[index].vcNombre,
-                            speciesListAves[index].vcNombreCientifico,
-                            speciesListAves[index].tipo),
+                          speciesListAves[index].vcImagen,
+                          speciesListAves[index].vcNombre,
+                          speciesListAves[index].vcNombreCientifico,
+                          speciesListAves[index].tipo,
+                        ),
                       );
                     }),
                 ListView.builder(

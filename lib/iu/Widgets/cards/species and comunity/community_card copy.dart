@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 
-import 'package:catalogo_species/classcomunity.dart';
 import 'package:flutter/material.dart';
 
 import '../../../paginas/Views/Viewcomunidate.dart';
@@ -8,40 +7,15 @@ import '../../../paginas/Views/Viewcomunidate.dart';
 // ignore: must_be_immutable
 class CommunitieCard extends StatelessWidget {
   final int index;
-  final List<Comunidades> titulos = [
-    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
-        'idioma tupi-guarani', 'legado cultural'),
-    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
-        'idioma tupi-guarani', 'legado cultural'),
-    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
-        'idioma tupi-guarani', 'legado cultural'),
-    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
-        'idioma tupi-guarani', 'legado cultural'),
-    Comunidades('assets/c1.png', 'Comunidad Nativa 1', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c2.png', 'Comunidad Nativa 2', 'America de Sur',
-        'Descendencia Amazonica', 'legado cultural'),
-    Comunidades('assets/c3.jpeg', 'Tupis', 'America de Sur',
-        'idioma tupi-guarani', 'legado cultural'),
-  ];
-  CommunitieCard(
-    this.index, {
+  final String titulo;
+  final String subtitulo;
+  final String subtitulo2;
+
+  const CommunitieCard(
+    this.index,
+    this.titulo,
+    this.subtitulo,
+    this.subtitulo2, {
     super.key,
   });
   @override
@@ -65,8 +39,8 @@ class CommunitieCard extends StatelessWidget {
                   width: 62,
                   height: 62,
                   decoration: ShapeDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(titulos[index].imagen),
+                      image: const DecorationImage(
+                        image: AssetImage('assets/indigenas.jpg'),
                         fit: BoxFit.cover,
                       ),
                       shape: RoundedRectangleBorder(
@@ -79,7 +53,7 @@ class CommunitieCard extends StatelessWidget {
                 ),
                 Wrap(direction: Axis.vertical, children: [
                   Text(
-                    titulos[index].titulo,
+                    titulo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 16,
@@ -89,7 +63,7 @@ class CommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    titulos[index].subtitulo1,
+                    subtitulo,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
@@ -98,7 +72,7 @@ class CommunitieCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    titulos[index].subtitulo2,
+                    subtitulo2,
                     style: const TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
@@ -106,15 +80,6 @@ class CommunitieCard extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    titulos[index].subtitulo3,
-                    style: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  )
                 ]),
               ],
             ),
