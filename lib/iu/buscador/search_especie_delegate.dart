@@ -43,6 +43,7 @@ class SearchEspecieDelegate extends SearchDelegate {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: CustomSpecieCommunitieCard(
+                        speciesList[index].idEspecie,
                         speciesList[index].vcImagen,
                         speciesList[index].vcNombre,
                         speciesList[index].vcNombreCientifico,

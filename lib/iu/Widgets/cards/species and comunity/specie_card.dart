@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 // Asegúrate de importar correctamente el servicio
 
 class CustomSpecieCommunitieCard extends StatelessWidget {
+  final int index;
   final String image;
   final String titulo;
   final String subtitulo;
   final String tipo;
 
   const CustomSpecieCommunitieCard(
-      this.image, this.titulo, this.subtitulo, this.tipo,
+      this.index, this.image, this.titulo, this.subtitulo, this.tipo,
       {Key? key})
       : super(key: key);
 
@@ -26,7 +27,7 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const ViewEspecies(),
+              builder: (context) => ViewEspecies(index),
             ),
           )
         },
