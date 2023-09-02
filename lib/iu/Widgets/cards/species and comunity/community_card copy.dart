@@ -21,8 +21,6 @@ class CommunitieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0,
-      color: const Color.fromRGBO(255, 255, 255, 1),
       child: InkWell(
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
@@ -32,53 +30,41 @@ class CommunitieCard extends StatelessWidget {
         },
         child: SizedBox(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
-                Ink(
-                  width: 62,
-                  height: 62,
-                  decoration: ShapeDecoration(
-                      image: const DecorationImage(
-                        image: AssetImage('assets/indigenas.jpg'),
-                        fit: BoxFit.cover,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1, color: Colors.orange),
-                        borderRadius: BorderRadius.circular(15),
-                      )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Ink(
+                    width: 62,
+                    height: 62,
+                    decoration: ShapeDecoration(
+                        image: const DecorationImage(
+                          image: AssetImage('assets/indigenas.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          side:
+                              const BorderSide(width: 1, color: Colors.orange),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                  ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 15,
                 ),
                 Wrap(direction: Axis.vertical, children: [
-                  Text(
-                    titulo,
-                    style: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 16,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 0.15,
-                    ),
-                  ),
+                  Text(titulo,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.bold,
+                      )),
                   Text(
                     subtitulo,
-                    style: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                    ),
                   ),
                   Text(
                     subtitulo2,
-                    style: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                    ),
                   ),
                 ]),
               ],

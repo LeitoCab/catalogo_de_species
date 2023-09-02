@@ -104,18 +104,16 @@ class _ViewComunidateState extends State<ViewComunidate> {
                   ListTile(
                     title: Text(
                       snapshot.data!.vcNombre,
-                    ),
-                    titleTextStyle: const TextStyle(
-                      color: Color(0xFF6B5CC9),
-                      fontSize: 22,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                      height: 1.27,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
+                        height: 1.27,
+                      ),
                     ),
                     subtitle: const Text(''),
                     subtitleTextStyle: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 12,
+                      fontSize: 14,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
                       height: 1.33,
@@ -133,7 +131,6 @@ class _ViewComunidateState extends State<ViewComunidate> {
                               'Ubicación y población',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                color: Color(0xFF201A1B),
                                 fontSize: 14,
                                 fontFamily: 'Roboto',
                                 fontWeight: FontWeight.w700,
@@ -161,7 +158,15 @@ class _ViewComunidateState extends State<ViewComunidate> {
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: ListView(
                         children: [
-                          Text(snapshot.data!.teDescripcion),
+                          Text(
+                            snapshot.data!.teDescripcion,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontFamily: 'Arial',
+                              fontWeight: FontWeight.w400,
+                              height: 1.27,
+                            ),
+                          ),
                         ],
                       ),
                     ),

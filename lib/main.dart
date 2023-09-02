@@ -1,4 +1,4 @@
-import 'package:catalogo_species/iu/colores/global_colors.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:catalogo_species/iu/paginas/MyApp/Myapp.dart';
 import 'package:flutter/material.dart';
 
@@ -11,19 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          useMaterial3: true,
-          appBarTheme: const AppBarTheme(
-            backgroundColor: kBackgroundColor,
-          ),
-          scaffoldBackgroundColor: kBackgroundColor,
-          navigationBarTheme: const NavigationBarThemeData(
-            backgroundColor: AppBarColor,
-            indicatorColor: SombraBoton,
-          )),
-      home: const Myappp(),
-    );
+    return AdaptiveTheme(
+        dark: ThemeData.dark(),
+        light: ThemeData.light(),
+        initial: AdaptiveThemeMode.light,
+        builder: (theme, darktheme) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            darkTheme: darktheme,
+            theme: theme,
+            home: const Myappp(),
+          );
+        });
   }
 }

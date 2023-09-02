@@ -1,8 +1,8 @@
 import 'package:catalogo_species/iu/Widgets/circleAvatar/circleAvatar.dart';
 import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_comunidades.dart';
-import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_especies.dart';
-
 import 'package:flutter/material.dart';
+
+import '../../Widgets/drawer/Drawer.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -17,89 +17,18 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Amazonia'),
-          titleTextStyle: const TextStyle(
-            color: Color(0xFF201A1B),
-            fontSize: 22,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w700,
-          ),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 57, 119, 172),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 65,
-                        height: 75,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage('assets/logo.png'),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 200,
-                        child: ListTile(
-                          title: Text(
-                            'AMAZONIA',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          subtitle: Text(
-                            'Guía ilustrada de flora y fauna',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
-              ListTile(
-                  leading: Icon(Icons.brightness_4),
-                  title: Text('Modo Oscuro'),
-                  trailing: Switch(value: false, onChanged: (bool value) {})),
-              ListTile(
-                leading: Icon(Icons.account_circle),
-                title: Text('Perfil'),
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Configuración'),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Container(
-                  width: 250,
-                  height: 2,
-                  decoration: const BoxDecoration(color: Color(0xFF201A1B)),
-                ),
-              ),
-            ],
-          ),
-        ),
+        drawer: const drawer(),
         body: ListView(
           children: <Widget>[
+            const SizedBox(
+              height: 20,
+            ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'categorias',
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 18,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
@@ -127,7 +56,6 @@ class _HomepageState extends State<Homepage> {
               title: const Text(
                 'Comunidades indígenas',
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 18,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
@@ -160,7 +88,6 @@ class _HomepageState extends State<Homepage> {
               title: const Text(
                 'Especies recomendadas',
                 style: TextStyle(
-                  color: Colors.black,
                   fontSize: 18,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
@@ -170,36 +97,6 @@ class _HomepageState extends State<Homepage> {
               contentPadding: const EdgeInsets.symmetric(horizontal: 16),
               trailing: IconButton(
                   onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Stack(children: [
-                Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Wrap(
-                        spacing: 4,
-                        direction: Axis.vertical,
-                        children: [
-                          cardSpecies(),
-                          cardSpecies(),
-                          cardSpecies(),
-                        ],
-                      ),
-                      Wrap(
-                        spacing: 4,
-                        direction: Axis.vertical,
-                        children: [
-                          cardSpecies(),
-                          cardSpecies(),
-                          cardSpecies(),
-                        ],
-                      ),
-                    ],
-                  ),
-                )
-              ]),
             ),
           ],
         ));

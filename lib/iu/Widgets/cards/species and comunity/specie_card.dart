@@ -17,8 +17,6 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 0,
-      color: const Color.fromRGBO(255, 255, 255, 1),
       child: InkWell(
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
@@ -35,26 +33,28 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Row(
               children: [
-                Ink(
-                  width: 62,
-                  height: 62,
-                  decoration: ShapeDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(image),
-                      ),
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(width: 1, color: Colors.orange),
-                        borderRadius: BorderRadius.circular(15),
-                      )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Ink(
+                    width: 62,
+                    height: 62,
+                    decoration: ShapeDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(image), fit: BoxFit.fill),
+                        shape: RoundedRectangleBorder(
+                          side:
+                              const BorderSide(width: 1, color: Colors.orange),
+                          borderRadius: BorderRadius.circular(15),
+                        )),
+                  ),
                 ),
                 const SizedBox(
-                  width: 20,
+                  width: 5,
                 ),
                 Wrap(direction: Axis.vertical, children: [
                   Text(
                     titulo,
                     style: const TextStyle(
-                      color: Color(0xFF201A1B),
                       fontSize: 14,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.bold,
@@ -63,12 +63,6 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
                   ),
                   Text(
                     subtitulo,
-                    style: const TextStyle(
-                      color: Color(0xFF201A1B),
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w400,
-                    ),
                   ),
                   const Text(
                     '',
