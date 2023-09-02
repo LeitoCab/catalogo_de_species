@@ -33,35 +33,35 @@ class _EspeciesState extends State<Especies>
     super.build(context);
     return Scaffold(
       appBar: appBarPrincipal(
-          context,
-          'Especies',
-          IconButton(
-              onPressed: () {
-                showSearch(context: context, delegate: SearchEspecieDelegate());
-              },
-              icon: const Icon(Icons.search_rounded)),
-          TabBar(controller: _tabController, isScrollable: true, tabs: const [
-            Tab(
-              icon: Icon(CustomIcons.bird),
-              text: 'Aves',
-            ),
-            Tab(
-              icon: Icon(CustomIcons.fish),
-              text: 'Peces',
-            ),
-            Tab(
-              icon: Icon(CustomIcons.mammal),
-              text: 'Mamíferos',
-            ),
-            Tab(
-              icon: Icon(CustomIcons.reptile),
-              text: 'Reptiles',
-            ),
-            Tab(icon: Icon(CustomIcons.palm), text: 'Palmeras'),
-            Tab(icon: Icon(CustomIcons.tree), text: 'Arboles'),
-            Tab(icon: Icon(CustomIcons.insect), text: 'Insectos'),
-          ]),
-          null),
+        context,
+        'Especies',
+        IconButton(
+            onPressed: () {
+              showSearch(context: context, delegate: SearchEspecieDelegate());
+            },
+            icon: const Icon(Icons.search_rounded)),
+        TabBar(controller: _tabController, isScrollable: true, tabs: const [
+          Tab(
+            icon: Icon(CustomIcons.bird),
+            text: 'Aves',
+          ),
+          Tab(
+            icon: Icon(CustomIcons.fish),
+            text: 'Peces',
+          ),
+          Tab(
+            icon: Icon(CustomIcons.mammal),
+            text: 'Mamíferos',
+          ),
+          Tab(
+            icon: Icon(CustomIcons.reptile),
+            text: 'Reptiles',
+          ),
+          Tab(icon: Icon(CustomIcons.palm), text: 'Palmeras'),
+          Tab(icon: Icon(CustomIcons.tree), text: 'Arboles'),
+          Tab(icon: Icon(CustomIcons.insect), text: 'Insectos'),
+        ]),
+      ),
       body: FutureBuilder<List<Species>>(
           future: especies,
           builder: (_, snapshot) {
@@ -107,7 +107,6 @@ class _EspeciesState extends State<Especies>
                           speciesListAves[index].vcImagen,
                           speciesListAves[index].vcNombre,
                           speciesListAves[index].vcNombreCientifico,
-                          speciesListAves[index].tipo,
                         ),
                       );
                     }),
@@ -117,11 +116,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListPeces[index].idEspecie,
-                            speciesListPeces[index].vcImagen,
-                            speciesListPeces[index].vcNombre,
-                            speciesListPeces[index].vcNombreCientifico,
-                            speciesListPeces[index].tipo),
+                          speciesListPeces[index].idEspecie,
+                          speciesListPeces[index].vcImagen,
+                          speciesListPeces[index].vcNombre,
+                          speciesListPeces[index].vcNombreCientifico,
+                        ),
                       );
                     }),
                 ListView.builder(
@@ -130,11 +129,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListMamiferos[index].idEspecie,
-                            speciesListMamiferos[index].vcImagen,
-                            speciesListMamiferos[index].vcNombre,
-                            speciesListMamiferos[index].vcNombreCientifico,
-                            speciesListMamiferos[index].tipo),
+                          speciesListMamiferos[index].idEspecie,
+                          speciesListMamiferos[index].vcImagen,
+                          speciesListMamiferos[index].vcNombre,
+                          speciesListMamiferos[index].vcNombreCientifico,
+                        ),
                       );
                     }),
                 ListView.builder(
@@ -143,11 +142,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListReptiles[index].idEspecie,
-                            speciesListReptiles[index].vcImagen,
-                            speciesListReptiles[index].vcNombre,
-                            speciesListReptiles[index].vcNombreCientifico,
-                            speciesListReptiles[index].tipo),
+                          speciesListReptiles[index].idEspecie,
+                          speciesListReptiles[index].vcImagen,
+                          speciesListReptiles[index].vcNombre,
+                          speciesListReptiles[index].vcNombreCientifico,
+                        ),
                       );
                     }),
                 ListView.builder(
@@ -156,11 +155,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListPlantas[index].idEspecie,
-                            speciesListPlantas[index].vcImagen,
-                            speciesListPlantas[index].vcNombre,
-                            speciesListPlantas[index].vcNombreCientifico,
-                            speciesListPlantas[index].tipo),
+                          speciesListPlantas[index].idEspecie,
+                          speciesListPlantas[index].vcImagen,
+                          speciesListPlantas[index].vcNombre,
+                          speciesListPlantas[index].vcNombreCientifico,
+                        ),
                       );
                     }),
                 ListView.builder(
@@ -169,11 +168,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListArboles[index].idEspecie,
-                            speciesListArboles[index].vcImagen,
-                            speciesListArboles[index].vcNombre,
-                            speciesListArboles[index].vcNombreCientifico,
-                            speciesListArboles[index].tipo),
+                          speciesListArboles[index].idEspecie,
+                          speciesListArboles[index].vcImagen,
+                          speciesListArboles[index].vcNombre,
+                          speciesListArboles[index].vcNombreCientifico,
+                        ),
                       );
                     }),
                 ListView.builder(
@@ -182,11 +181,11 @@ class _EspeciesState extends State<Especies>
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: CustomSpecieCommunitieCard(
-                            speciesListInsectos[index].idEspecie,
-                            speciesListInsectos[index].vcImagen,
-                            speciesListInsectos[index].vcNombre,
-                            speciesListInsectos[index].vcNombreCientifico,
-                            speciesListInsectos[index].tipo),
+                          speciesListInsectos[index].idEspecie,
+                          speciesListInsectos[index].vcImagen,
+                          speciesListInsectos[index].vcNombre,
+                          speciesListInsectos[index].vcNombreCientifico,
+                        ),
                       );
                     }),
               ]);

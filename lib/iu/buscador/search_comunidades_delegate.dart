@@ -43,7 +43,7 @@ class SearchComunidadesDelegate extends SearchDelegate {
                 return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: CommunitieCard(
-                        index = communityList[index].idPuebloIndigena,
+                        communityList[index].idPuebloIndigena,
                         communityList[index].vcNombre,
                         communityList[index].dtFechaCreacion.toString(),
                         communityList[index].chEstado));

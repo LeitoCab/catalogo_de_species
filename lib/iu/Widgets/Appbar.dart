@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 PreferredSizeWidget appBarPrincipal(
-    BuildContext context, String title, IconButton lead, boton, shear) {
+    BuildContext context, String title, IconButton lead, boton) {
   return AppBar(
     title: title != ' ' ? Text(title) : null,
     titleTextStyle: const TextStyle(
@@ -14,14 +14,5 @@ PreferredSizeWidget appBarPrincipal(
     ),
     leading: lead,
     bottom: boton,
-    actions: [
-      IconButton(
-        style: const ButtonStyle(
-          iconSize: MaterialStatePropertyAll(30),
-        ),
-        onPressed: () {},
-        icon: Icon(shear ?? shear),
-      ),
-    ],
   );
 }

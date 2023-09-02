@@ -58,7 +58,7 @@ class CommunitieCard extends StatelessWidget {
                       color: Color(0xFF201A1B),
                       fontSize: 16,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 0.15,
                     ),
                   ),

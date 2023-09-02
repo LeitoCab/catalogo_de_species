@@ -25,15 +25,15 @@ class _ViewComunidateState extends State<ViewComunidate> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: appBarPrincipal(
-            context,
-            'Comunidades',
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.navigate_before_outlined)),
-            null,
-            null),
+          context,
+          'Vista de la Comunidad',
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.navigate_before_outlined)),
+          null,
+        ),
         body: FutureBuilder<ComunityId>(
           future: comunidadesId,
           builder: (_, snapshot) {
@@ -173,7 +173,7 @@ class _ViewComunidateState extends State<ViewComunidate> {
                 child: Text("${snapshot.error}"),
               );
             }
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           },
         ));
   }

@@ -8,10 +8,9 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
   final String image;
   final String titulo;
   final String subtitulo;
-  final String tipo;
 
   const CustomSpecieCommunitieCard(
-      this.index, this.image, this.titulo, this.subtitulo, this.tipo,
+      this.index, this.image, this.titulo, this.subtitulo,
       {Key? key})
       : super(key: key);
 
@@ -58,7 +57,7 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
                       color: Color(0xFF201A1B),
                       fontSize: 14,
                       fontFamily: 'Roboto',
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 0.15,
                     ),
                   ),
@@ -71,9 +70,9 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  Text(
-                    tipo,
-                    style: const TextStyle(
+                  const Text(
+                    '',
+                    style: TextStyle(
                       color: Color(0xFF201A1B),
                       fontSize: 12,
                       fontFamily: 'Roboto',

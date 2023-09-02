@@ -39,7 +39,6 @@ class _comunidadesState extends State<comunidades> {
             },
             icon: const Icon(Icons.search_rounded)),
         null,
-        null,
       ),
       body: FutureBuilder<List<Community>>(
         future: comunidades,

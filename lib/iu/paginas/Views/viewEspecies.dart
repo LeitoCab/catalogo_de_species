@@ -28,13 +28,12 @@ class _ViewEspeciesState extends State<ViewEspecies> {
     return Scaffold(
         appBar: appBarPrincipal(
             context,
-            'Especies',
+            'Vista de la Especie',
             IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.navigate_before_outlined)),
-            null,
             null),
         body: FutureBuilder<SpeciesId>(
           future: especiesId,
@@ -171,7 +170,7 @@ class _ViewEspeciesState extends State<ViewEspecies> {
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           },
         ));
   }
