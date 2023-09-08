@@ -1,7 +1,10 @@
-import 'package:catalogo_species/iu/Widgets/circleAvatar/circleAvatar.dart';
 import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_comunidades.dart';
+import 'package:catalogo_species/iu/Widgets/circleAvatar/circleAvatar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../../../domain/entities/class_especies.dart';
+import '../../../domain/services/http_especies.dart';
 import '../../Widgets/drawer/Drawer.dart';
 
 class Homepage extends StatefulWidget {
@@ -12,6 +15,13 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  late Future<List<Species>> especies;
+  @override
+  void initState() {
+    super.initState();
+    especies = EspeciesService.fetchSpecies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,86 +29,95 @@ class _HomepageState extends State<Homepage> {
           title: const Text('Amazonia'),
         ),
         drawer: const drawer(),
-        body: ListView(
-          children: <Widget>[
-            const SizedBox(
-              height: 20,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                'categorias',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.15,
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  categoriacircleAvatar(context, 'assets/especie.png', 'Aves'),
-                  categoriacircleAvatar(
-                      context, 'assets/mamifero.png', 'Mamiferos'),
-                  categoriacircleAvatar(
-                      context, 'assets/reptil.png', 'Reptiles'),
-                  categoriacircleAvatar(
-                      context, 'assets/anfibio.png', 'Anfibios')
-                ],
-              ),
-            ),
-            ListTile(
-              title: const Text(
-                'Comunidades indígenas',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.15,
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
-            ),
-            Container(
-              width: 350,
-              height: 228,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  comunidadesCard(
-                      context, 'assets/especie.png', 'chivo el que lo lee'),
-                  comunidadesCard(
-                      context, 'assets/especie.png', 'chivo el que lo lee'),
-                  comunidadesCard(
-                      context, 'assets/especie.png', 'chivo el que lo lee')
-                ],
-              ),
-            ),
-            ListTile(
-              title: const Text(
-                'Especies recomendadas',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: 'Roboto',
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.15,
-                ),
-              ),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
-              trailing: IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.arrow_forward)),
-            ),
-          ],
-        ));
+        body: FutureBuilder<List<Species>>(
+            future: especies,
+            builder: (_, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text("Error: ${snapshot.error}"));
+              } else if (snapshot.hasData) {
+                List<Species> speciesPorEstado =
+                    snapshot.data!.where((element) {
+                  return element.vcImagenesEstado.isNotEmpty;
+                }).toList();
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    const Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      child: Text(
+                        'categorias',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 0.15,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          categoriacircleAvatar(
+                              context, 'assets/especie.png', 'Aves'),
+                          categoriacircleAvatar(
+                              context, 'assets/mamifero.png', 'Mamiferos'),
+                          categoriacircleAvatar(
+                              context, 'assets/reptil.png', 'Reptiles'),
+                          categoriacircleAvatar(
+                              context, 'assets/anfibio.png', 'Anfibios')
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 15),
+                    ListTile(
+                      title: const Text(
+                        'Especies por estado de conservación',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 0.15,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.help_outline_outlined),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: CarouselSlider.builder(
+                          itemCount: speciesPorEstado.length,
+                          options: CarouselOptions(
+                            height: double.infinity,
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 4),
+                          ),
+                          itemBuilder: (_, index, realIndex) {
+                            return ComunidadesCard(
+                              speciesPorEstado[index].vcImagen,
+                              speciesPorEstado[index].vcNombre,
+                              speciesPorEstado[index].vcNombreCientifico,
+                              speciesPorEstado[index].tipo,
+                              speciesPorEstado[index].vcImagenesEstado,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              }
+              return const Center(child: Text('No hay datos'));
+            }));
   }
 }
