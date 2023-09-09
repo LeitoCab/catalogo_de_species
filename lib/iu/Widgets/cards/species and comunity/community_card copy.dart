@@ -21,6 +21,7 @@ class CommunitieCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0.5,
       child: InkWell(
         splashColor: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
@@ -30,7 +31,7 @@ class CommunitieCard extends StatelessWidget {
         },
         child: SizedBox(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Row(
               children: [
                 Padding(

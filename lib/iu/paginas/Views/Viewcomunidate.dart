@@ -48,6 +48,7 @@ class _ViewComunidateState extends State<ViewComunidate> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Container(
                       decoration: ShapeDecoration(
+                          color: Colors.white,
                           image: const DecorationImage(
                               image: AssetImage('assets/indigenas.jpg'),
                               fit: BoxFit.cover),
@@ -159,7 +160,8 @@ class _ViewComunidateState extends State<ViewComunidate> {
                       child: ListView(
                         children: [
                           Text(
-                            snapshot.data!.teDescripcion,
+                            textAlign: TextAlign.justify,
+                            snapshot.data!.teDescripcion.trim(),
                             style: const TextStyle(
                               fontSize: 16,
                               fontFamily: 'Arial',

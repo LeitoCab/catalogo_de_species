@@ -52,13 +52,15 @@ class _comunidadesState extends State<comunidades> {
             return ListView.builder(
                 itemCount: communityList.length,
                 itemBuilder: (context, index) {
-                  return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: CommunitieCard(
-                          communityList[index].idPuebloIndigena,
-                          communityList[index].vcNombre,
-                          communityList[index].dtFechaCreacion.toString(),
-                          communityList[index].chEstado));
+                  return SizedBox(
+                    child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
+                        child: CommunitieCard(
+                            communityList[index].idPuebloIndigena,
+                            communityList[index].vcNombre,
+                            communityList[index].dtFechaCreacion.toString(),
+                            communityList[index].chEstado)),
+                  );
                 });
           } else {
             return const Center(

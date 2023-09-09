@@ -101,7 +101,11 @@ class drawer extends StatelessWidget {
           ),
           ListTile(
             leading: IconButton(
-                onPressed: () {}, icon: const Icon(Icons.location_on_outlined)),
+                onPressed: () {
+                  launchUrl(Uri.parse(
+                      'https://www.google.com/maps/place/Instituto+de+Investigaciones+de+la+Amazon%C3%ADa+Peruana/@-3.7690772,-73.2774157,17z/data=!4m6!3m5!1s0x91ea10271e72f725:0xfb6dde79feef3c8e!8m2!3d-3.7674996!4d-73.2747322!16s%2Fg%2F1tf7nmxj?authuser=0&entry=ttu'));
+                },
+                icon: const Icon(Icons.location_on_outlined)),
             title: const Text(
               'Carretera Iquito-Nauta',
             ),

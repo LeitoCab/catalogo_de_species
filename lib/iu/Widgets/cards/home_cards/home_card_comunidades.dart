@@ -13,9 +13,14 @@ class ComunidadesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      color: Colors.red,
-      //color: const Color.fromARGB(255, 214, 169, 169),
+      shape: ShapeBorder.lerp(
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(width: 1, color: Colors.red.shade200)),
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+              side: BorderSide(width: 2, color: Colors.red.shade200)),
+          2),
       child: SizedBox(
         child: Column(
           children: <Widget>[
@@ -35,6 +40,7 @@ class ComunidadesCard extends StatelessWidget {
                             height: double.infinity,
                             child: Image.network(
                               image,
+                              fit: BoxFit.scaleDown,
                             )),
                       ),
                       Positioned(
@@ -75,10 +81,10 @@ class ComunidadesCard extends StatelessWidget {
             Ink(
               width: 350,
               height: 100,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                   borderRadius:
-                      BorderRadius.vertical(bottom: Radius.circular(20)),
-                  color: Colors.black45),
+                      const BorderRadius.vertical(bottom: Radius.circular(20)),
+                  color: Colors.red.shade200),
               child: Padding(
                 padding: const EdgeInsets.all(8),
                 child: Column(
@@ -111,39 +117,3 @@ class ComunidadesCard extends StatelessWidget {
     );
   }
 }
-/* ListView(
-                                  children: List.generate(
-                                      List.from(imagenporestado)
-                                          .toList()
-                                          .length, (index) {
-                                    return Container(
-                                      width: 45,
-                                      height: 45,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              image: NetworkImage(
-                                                  List.from(imagenporestado)
-                                                      .toList()[index])),
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                    );
-                                  }),
-                                ), */
-
-/* 
-                                Wrap(
-                              spacing: 5,
-                              direction: Axis.vertical,
-                              children: [
-                                Container(
-                                  width: 45,
-                                  height: 45,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              List.from(imagenporestado)
-                                                  .toList()[0])),
-                                      borderRadius: BorderRadius.circular(10)),
-                                ),
-                              ],
-                            ) */

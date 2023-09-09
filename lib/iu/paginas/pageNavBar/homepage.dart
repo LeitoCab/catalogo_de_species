@@ -1,3 +1,4 @@
+import 'package:catalogo_species/iu/Widgets/Showdialog/showdialog_stados.dart';
 import 'package:catalogo_species/iu/Widgets/cards/home_cards/home_card_comunidades.dart';
 import 'package:catalogo_species/iu/Widgets/circleAvatar/circleAvatar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -65,7 +66,7 @@ class _HomepageState extends State<Homepage> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           categoriacircleAvatar(
-                              context, 'assets/especie.png', 'Aves'),
+                              context, 'assets/aves.png', 'Aves'),
                           categoriacircleAvatar(
                               context, 'assets/mamifero.png', 'Mamiferos'),
                           categoriacircleAvatar(
@@ -88,9 +89,15 @@ class _HomepageState extends State<Homepage> {
                         ),
                       ),
                       trailing: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.help_outline_outlined),
-                      ),
+                          tooltip: 'Ayuda',
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const ShowdialogStados();
+                                });
+                          },
+                          icon: const Icon(Icons.help_outline_outlined)),
                     ),
                     Expanded(
                       child: Padding(

@@ -101,7 +101,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListAves.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListAves[index].idEspecie,
                           speciesListAves[index].vcImagen,
@@ -114,7 +114,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListPeces.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListPeces[index].idEspecie,
                           speciesListPeces[index].vcImagen,
@@ -127,7 +127,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListMamiferos.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListMamiferos[index].idEspecie,
                           speciesListMamiferos[index].vcImagen,
@@ -140,7 +140,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListReptiles.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListReptiles[index].idEspecie,
                           speciesListReptiles[index].vcImagen,
@@ -153,7 +153,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListPlantas.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListPlantas[index].idEspecie,
                           speciesListPlantas[index].vcImagen,
@@ -166,7 +166,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListArboles.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListArboles[index].idEspecie,
                           speciesListArboles[index].vcImagen,
@@ -179,7 +179,7 @@ class _EspeciesState extends State<Especies>
                     itemCount: speciesListInsectos.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
                           speciesListInsectos[index].idEspecie,
                           speciesListInsectos[index].vcImagen,

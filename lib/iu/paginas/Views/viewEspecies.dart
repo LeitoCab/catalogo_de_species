@@ -49,6 +49,7 @@ class _ViewEspeciesState extends State<ViewEspecies> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Container(
                       decoration: ShapeDecoration(
+                          color: Colors.white,
                           image: DecorationImage(
                             image: NetworkImage(snapshot.data!.vcImagen),
                           ),
@@ -160,7 +161,8 @@ class _ViewEspeciesState extends State<ViewEspecies> {
                       child: ListView(
                         children: [
                           Text(
-                            snapshot.data!.teDescripcion,
+                            snapshot.data!.teDescripcion.trim(),
+                            textAlign: TextAlign.justify,
                             style: const TextStyle(
                               fontSize: 16,
                               fontFamily: 'Arial',

@@ -1,6 +1,8 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 
+import '../colores/custom_icons.dart';
+
 class Navigatorbar extends StatefulWidget {
   // ignore: non_constant_identifier_names
   final Function Currentindex;
@@ -34,7 +36,7 @@ class _NavigatorbarState extends State<Navigatorbar> {
               label: 'Inicio',
             ),
             NavigationDestination(
-              icon: Icon(Icons.local_florist),
+              icon: Icon(CustomIcons.mammal),
               label: 'Especies',
             ),
             NavigationDestination(

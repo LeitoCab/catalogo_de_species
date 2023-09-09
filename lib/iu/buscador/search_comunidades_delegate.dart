@@ -41,7 +41,7 @@ class SearchComunidadesDelegate extends SearchDelegate {
               itemCount: communityList.length,
               itemBuilder: (context, index) {
                 return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 1),
                     child: CommunitieCard(
                         communityList[index].idPuebloIndigena,
                         communityList[index].vcNombre,

@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import '../entities/class_especies.dart';
 
 class EspeciesService {
+  // end point para obtener las especies;
   static Future<List<Species>> fetchSpecies() async {
     try {
       final response = await http
@@ -22,6 +23,7 @@ class EspeciesService {
     }
   }
 
+// end point para obtener las especies por nombre;
   List<Species> result = [];
   Future<List<Species>> getSpecies({String? query}) async {
     try {
