@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 import '../entities/class_especies.dart';
@@ -19,6 +21,30 @@ class EspeciesService {
     } catch (e) {
       // Manejo de errores generales (por ejemplo, problemas de conexión)
 
+      throw Exception('Failed to fetch species');
+    }
+  }
+
+  static Future<List<Species>> especies({
+    required int type,
+  }) async {
+    try {
+      final response = await http.get(Uri.parse(
+          'https://api.amazonia.iiap.gob.pe/api/v1/species/search/type/$type/2/16/,/,'));
+      print('😘${response}');
+      print('😘${response.body}');
+      if (response.statusCode == 200) {
+        Map<String, dynamic> result = json.decode(response.body);
+        final List<dynamic> speciesList = result['species'];
+        final value =
+            List<Species>.from(speciesList.map((x) => Species.fromJson(x)));
+        return value;
+      } else {
+        // Manejo de error si la respuesta no es exitosa (código de estado diferente de 200)
+
+        throw Exception('Falló al cargar las especies');
+      }
+    } catch (e) {
       throw Exception('Failed to fetch species');
     }
   }

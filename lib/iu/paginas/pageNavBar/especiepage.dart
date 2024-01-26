@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import '../../../domain/entities/class_especies.dart';
 import '../../../domain/services/http_especies.dart';
 import '../../Widgets/Appbar.dart';
@@ -24,7 +24,7 @@ class _EspeciesState extends State<Especies>
   @override
   void initState() {
     super.initState();
-    especies = EspeciesService.fetchSpecies();
+    especies = EspeciesService.especies(1);
     _tabController = TabController(length: 7, vsync: this);
   }
 
@@ -71,42 +71,43 @@ class _EspeciesState extends State<Especies>
               return Center(child: Text("Error: ${snapshot.error}"));
             } else if (snapshot.hasData && snapshot.data != null) {
               List<Species> speciesListAves = snapshot.data!.where((element) {
-                return element.tipo == 'Aves';
+                return element.vcNombre == 'Aves';
               }).toList();
               List<Species> speciesListPeces = snapshot.data!.where((element) {
-                return element.tipo == 'Peces';
+                return element.vcNombre == 'Peces';
               }).toList();
               List<Species> speciesListMamiferos =
                   snapshot.data!.where((element) {
-                return element.tipo == 'Mamiferos';
+                return element.vcNombre == 'Mamiferos';
               }).toList();
               List<Species> speciesListReptiles =
                   snapshot.data!.where((element) {
-                return element.tipo == 'Reptiles';
+                return element.vcNombre == 'Reptiles';
               }).toList();
               List<Species> speciesListPlantas =
                   snapshot.data!.where((element) {
-                return element.tipo == 'Palmeras';
+                return element.vcNombre == 'Palmeras';
               }).toList();
               List<Species> speciesListArboles =
                   snapshot.data!.where((element) {
-                return element.tipo == 'Arboles';
+                return element.vcNombre == 'Arboles';
               }).toList();
               List<Species> speciesListInsectos =
                   snapshot.data!.where((element) {
-                return element.tipo == 'Insectos';
+                return element.vcNombre == 'Insectos';
               }).toList();
               return TabBarView(controller: _tabController, children: [
                 ListView.builder(
-                    itemCount: speciesListAves.length,
+                    itemCount: snapshot.data?.length,
                     itemBuilder: (context, index) {
+                      final specie = snapshot.data?[index];
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 1),
                         child: CustomSpecieCommunitieCard(
-                          speciesListAves[index].idEspecie,
-                          speciesListAves[index].vcImagen,
-                          speciesListAves[index].vcNombre,
-                          speciesListAves[index].vcNombreCientifico,
+                          specie!.idEspecie,
+                          specie.vcImagen,
+                          specie.vcNombre,
+                          specie.vcNombreCientifico,
                         ),
                       );
                     }),
@@ -195,6 +196,46 @@ class _EspeciesState extends State<Especies>
               );
             }
           }),
+    );
+  }
+} */
+
+import 'package:catalogo_species/domain/services/http_especies.dart';
+import 'package:flutter/material.dart';
+
+class Especies extends StatelessWidget {
+  const Especies({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Especies'),
+      ),
+      body: FutureBuilder(
+        future: EspeciesService.especies(type: 4),
+        builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(
+              child: Text('Error'),
+            );
+          }
+          if (snapshot.hasData) {
+            return ListView.builder(
+              itemCount: snapshot.data?.length,
+              itemBuilder: (context, index) {
+                final specie = snapshot.data?[index];
+                return ListTile(
+                  title: Text(specie?.vcNombre ?? ''),
+                  subtitle: Text(specie?.vcNombreCientifico ?? ''),
+                  leading: Image.network(specie?.vcImagen ?? ''),
+                );
+              },
+            );
+          }
+          return Center(child: CircularProgressIndicator());
+        },
+      ),
     );
   }
 }

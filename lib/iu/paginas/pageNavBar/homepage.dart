@@ -40,7 +40,7 @@ class _HomepageState extends State<Homepage> {
               } else if (snapshot.hasData) {
                 List<Species> speciesPorEstado =
                     snapshot.data!.where((element) {
-                  return element.vcImagenesEstado.isNotEmpty;
+                  return element.vcImagen.isNotEmpty;
                 }).toList();
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,11 +111,10 @@ class _HomepageState extends State<Homepage> {
                           ),
                           itemBuilder: (_, index, realIndex) {
                             return ComunidadesCard(
-                              speciesPorEstado[index].vcImagen,
+                              'speciesPorEstado[index].vcImagen',
                               speciesPorEstado[index].vcNombre,
                               speciesPorEstado[index].vcNombreCientifico,
-                              speciesPorEstado[index].tipo,
-                              speciesPorEstado[index].vcImagenesEstado,
+                              'speciesPorEstado[index].estado',
                             );
                           },
                         ),

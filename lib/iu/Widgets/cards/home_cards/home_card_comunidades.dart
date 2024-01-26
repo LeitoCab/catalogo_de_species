@@ -5,9 +5,7 @@ class ComunidadesCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final String tipo;
-  final List<dynamic> imagenporestado;
-  const ComunidadesCard(
-      this.image, this.title, this.subtitle, this.tipo, this.imagenporestado,
+  const ComunidadesCard(this.image, this.title, this.subtitle, this.tipo,
       {super.key});
 
   @override
@@ -50,7 +48,7 @@ class ComunidadesCard extends StatelessWidget {
                             height: 200,
                             width: 30,
                             child: ListView.builder(
-                              itemCount: imagenporestado.length,
+                              itemCount: image.length,
                               itemBuilder: (BuildContext context, int index) {
                                 return Wrap(
                                   spacing: 7,
@@ -64,9 +62,12 @@ class ComunidadesCard extends StatelessWidget {
                                       height: 40,
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
-                                              image: NetworkImage(
-                                                  List.from(imagenporestado)
-                                                      .toList()[index])),
+                                              image: NetworkImage(List.from(
+                                                      List<String>.from(image
+                                                          .split(',')
+                                                          .map(
+                                                              (e) => e.trim())))
+                                                  .toList()[index])),
                                           borderRadius:
                                               BorderRadius.circular(10)),
                                     )

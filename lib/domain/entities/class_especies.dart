@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final species = speciesFromJson(jsonString);
+
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
@@ -12,54 +16,113 @@ class Species extends Equatable {
   final int idEspecie;
   final String vcNombre;
   final String vcNombreCientifico;
-  final String tipo;
   final String vcImagen;
+  /* final String vcAno;
+  final int idFamilia;
   final dynamic vcSonido;
-
-  final List<dynamic> vcImagenesEstado;
+  final Taxa taxa;
+  final List<dynamic> estadosConservacion;
+  final DateTime fechaCreacion;
+  final DateTime fechaModificacion;
+  final String estado; */
 
   const Species({
     required this.idEspecie,
     required this.vcNombre,
     required this.vcNombreCientifico,
-    required this.tipo,
     required this.vcImagen,
+    /* required this.vcAno,
+    required this.idFamilia,
     required this.vcSonido,
-    required this.vcImagenesEstado,
+    required this.taxa,
+    required this.estadosConservacion,
+    required this.fechaCreacion,
+    required this.fechaModificacion,
+    required this.estado, */
   });
 
   factory Species.fromJson(Map<String, dynamic> json) => Species(
         idEspecie: json["id_especie"],
         vcNombre: json["vc_nombre"],
         vcNombreCientifico: json["vc_nombre_cientifico"],
-        tipo: json["tipo"],
         vcImagen: json["vc_imagen"],
+        /*   vcAno: json["vc_ano"],
+        idFamilia: json["id_familia"],
         vcSonido: json["vc_sonido"],
-        vcImagenesEstado:
-            List<dynamic>.from(json["vc_imagenes_estado"].map((x) => x)),
+        taxa: Taxa.fromJson(json["taxa"]),
+        estadosConservacion:
+            List<dynamic>.from(json["estados_conservacion"].map((x) => x)),
+        fechaCreacion: DateTime.parse(json["fecha_creacion"]),
+        fechaModificacion: DateTime.parse(json["fecha_modificacion"]),
+        estado: json["estado"], */
       );
 
   Map<String, dynamic> toJson() => {
         "id_especie": idEspecie,
         "vc_nombre": vcNombre,
         "vc_nombre_cientifico": vcNombreCientifico,
-        "tipo": tipo,
         "vc_imagen": vcImagen,
+        /* "vc_ano": vcAno,
+        "id_familia": idFamilia,
         "vc_sonido": vcSonido,
-        "vc_imagenes_estado":
-            List<dynamic>.from(vcImagenesEstado.map((x) => x)),
+        "taxa": taxa.toJson(),
+        "estados_conservacion":
+            List<dynamic>.from(estadosConservacion.map((x) => x)),
+        "fecha_creacion": fechaCreacion.toIso8601String(),
+        "fecha_modificacion": fechaModificacion.toIso8601String(),
+        "estado": estado, */
       };
-
   @override
   List<Object?> get props => [
         idEspecie,
         vcNombre,
         vcNombreCientifico,
         vcImagen,
+        /*  vcAno,
+        idFamilia,
         vcSonido,
-        vcImagenesEstado
+        taxa,
+        estadosConservacion,
+        fechaCreacion,
+        fechaModificacion,
+        estado, */
       ];
-
   @override
   bool get stringify => true;
+}
+
+class Taxa {
+  final int idTaxa;
+  final String vcNombre;
+  final dynamic vcColorPrimario;
+  final dynamic vcColorSecundario;
+  final String vcImagen;
+  final String estado;
+
+  Taxa({
+    required this.idTaxa,
+    required this.vcNombre,
+    required this.vcColorPrimario,
+    required this.vcColorSecundario,
+    required this.vcImagen,
+    required this.estado,
+  });
+
+  factory Taxa.fromJson(Map<String, dynamic> json) => Taxa(
+        idTaxa: json["id_taxa"],
+        vcNombre: json["vc_nombre"],
+        vcColorPrimario: json["vc_color_primario"],
+        vcColorSecundario: json["vc_color_secundario"],
+        vcImagen: json["vc_imagen"],
+        estado: json["estado"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id_taxa": idTaxa,
+        "vc_nombre": vcNombre,
+        "vc_color_primario": vcColorPrimario,
+        "vc_color_secundario": vcColorSecundario,
+        "vc_imagen": vcImagen,
+        "estado": estado,
+      };
 }
