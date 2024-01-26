@@ -30,7 +30,7 @@ class EspeciesService {
   }) async {
     try {
       final response = await http.get(Uri.parse(
-          'https://api.amazonia.iiap.gob.pe/api/v1/species/search/type/$type/2/16/,/,'));
+          'https://api.amazonia.iiap.gob.pe/api/v1/species/search/type/$type/1/16/,/,'));
       print('😘${response}');
       print('😘${response.body}');
       if (response.statusCode == 200) {
