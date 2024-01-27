@@ -45,7 +45,7 @@ class SearchComunidadesDelegate extends SearchDelegate {
                     child: CommunitieCard(
                         communityList[index].idPuebloIndigena,
                         communityList[index].vcNombre,
-                        communityList[index].dtFechaCreacion.toString(),
+                        communityList[index].createdAt.toString(),
                         communityList[index].chEstado));
               });
         } else {

@@ -24,7 +24,7 @@ class _EspeciesState extends State<Especies>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 7, vsync: this);
+    _tabController = TabController(length: 8, vsync: this);
     // especies = EspeciesService.especies(type: 1);
     // _tabController = TabController(length: 7, vsync: this);
 
@@ -64,10 +64,6 @@ class _EspeciesState extends State<Especies>
             text: 'Aves',
           ),
           Tab(
-            icon: Icon(CustomIcons.fish),
-            text: 'Peces',
-          ),
-          Tab(
             icon: Icon(CustomIcons.mammal),
             text: 'Mamíferos',
           ),
@@ -75,9 +71,14 @@ class _EspeciesState extends State<Especies>
             icon: Icon(CustomIcons.reptile),
             text: 'Reptiles',
           ),
-          Tab(icon: Icon(CustomIcons.palm), text: 'Palmeras'),
-          Tab(icon: Icon(CustomIcons.tree), text: 'Arboles'),
+          Tab(icon: Icon(CustomIcons.amphibian), text: 'Anfibios'),
+          Tab(
+            icon: Icon(CustomIcons.fish),
+            text: 'Peces',
+          ),
           Tab(icon: Icon(CustomIcons.insect), text: 'Insectos'),
+          Tab(icon: Icon(CustomIcons.tree), text: 'Arboles'),
+          Tab(icon: Icon(CustomIcons.palm), text: 'Palmeras'),
         ]),
       ),
       body: FutureBuilder<List<Species>>(
@@ -89,6 +90,20 @@ class _EspeciesState extends State<Especies>
               return Center(child: Text("Error: ${snapshot.error}"));
             } else if (snapshot.hasData && snapshot.data != null) {
               return TabBarView(controller: _tabController, children: [
+                ListView.builder(
+                    itemCount: snapshot.data?.length,
+                    itemBuilder: (context, index) {
+                      final specie = snapshot.data?[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 1),
+                        child: CustomSpecieCommunitieCard(
+                          specie!.idEspecie,
+                          specie.vcImagen,
+                          specie.vcNombre,
+                          specie.vcNombreCientifico,
+                        ),
+                      );
+                    }),
                 ListView.builder(
                     itemCount: snapshot.data?.length,
                     itemBuilder: (context, index) {

@@ -23,7 +23,7 @@ class _comunidadesState extends State<comunidades> {
   @override
   void initState() {
     super.initState();
-    comunidades = ComunidadService.fetchCommunity();
+    comunidades = ComunidadService.fetchCommunity(type: 1);
   }
 
   @override
@@ -58,7 +58,7 @@ class _comunidadesState extends State<comunidades> {
                         child: CommunitieCard(
                             communityList[index].idPuebloIndigena,
                             communityList[index].vcNombre,
-                            communityList[index].dtFechaCreacion.toString(),
+                            communityList[index].createdAt.toString(),
                             communityList[index].chEstado)),
                   );
                 });

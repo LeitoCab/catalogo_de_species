@@ -1,19 +1,25 @@
+import 'dart:convert';
+
 import 'package:catalogo_species/domain/entities/class_comunityid.dart';
 import 'package:http/http.dart' as http;
 import '../entities/class_comunidad.dart';
 
 class ComunidadService {
   // Endpoint para obtener todas las comunidades
-  static Future<List<Community>> fetchCommunity() async {
+  static Future<List<Community>> fetchCommunity({required int type}) async {
     try {
       final response = await http.get(Uri.parse(
-          'https://api.amazonia.iiap.gob.pe/api/v1/indigenous-community'));
+          'https://api.amazonia.iiap.gob.pe/api/v1/indigenous-community/1/15'));
 
       if (response.statusCode == 200) {
-        return communityFromJson(response.body);
+        Map<String, dynamic> result = json.decode(response.body);
+        final List<dynamic> speciesList = result['pueblosIndigenas'];
+        final value =
+            List<Community>.from(speciesList.map((x) => Community.fromJson(x)));
+        return value;
       } else {
         // Manejo de error si la respuesta no es exitosa (código de estado diferente de 200)
-        throw Exception('Failed to load species');
+        throw Exception('Fallo al cargar comunidades');
       }
     } catch (e) {
       // Manejo de errores generales (por ejemplo, problemas de conexión)
