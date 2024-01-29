@@ -12,7 +12,7 @@ class Community {
   final String teDescripcion;
   final double deLongitud;
   final double deLatitud;
-  final dynamic vcImage;
+  final String? vcImage;
   final String chEstado;
   final dynamic createdAt;
   final DateTime updatedAt;

@@ -1,8 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:catalogo_species/iu/paginas/Views/Viewcomunidate.dart';
 import 'package:flutter/material.dart';
-
-import '../../../paginas/Views/Viewcomunidate.dart';
 
 // ignore: must_be_immutable
 class CommunitieCard extends StatelessWidget {
@@ -10,6 +9,7 @@ class CommunitieCard extends StatelessWidget {
   final String titulo;
   final String subtitulo;
   final String subtitulo2;
+  final String? image;
 
   const CommunitieCard(
     this.index,
@@ -17,9 +17,13 @@ class CommunitieCard extends StatelessWidget {
     this.subtitulo,
     this.subtitulo2, {
     super.key,
+    this.image,
   });
+
   @override
   Widget build(BuildContext context) {
+    print('subtitulo2: $subtitulo2');
+    print('image: $image');
     return Card(
       elevation: 0.5,
       child: InkWell(
@@ -34,23 +38,27 @@ class CommunitieCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Ink(
-                    width: 62,
-                    height: 62,
-                    decoration: ShapeDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage('assets/indigenas.jpg'),
+                if (image == null)
+                  const Text('No hay imagen')
+                else
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Ink(
+                      width: 62,
+                      height: 62,
+                      decoration: ShapeDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage(image!),
                           fit: BoxFit.cover,
                         ),
                         shape: RoundedRectangleBorder(
                           side:
                               const BorderSide(width: 1, color: Colors.orange),
                           borderRadius: BorderRadius.circular(15),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
                 const SizedBox(
                   width: 15,
                 ),
@@ -66,7 +74,10 @@ class CommunitieCard extends StatelessWidget {
                   ),
                   Text(
                     subtitulo2,
-                  ),
+                    style: const TextStyle(
+                      fontSize: 7,
+                    ),
+                  )
                 ]),
               ],
             ),

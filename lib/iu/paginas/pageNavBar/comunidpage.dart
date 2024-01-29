@@ -1,10 +1,10 @@
-import 'package:catalogo_species/iu/Widgets/cards/species%20and%20comunity/community_card%20copy.dart';
 import 'package:catalogo_species/iu/buscador/search_comunidades_delegate.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/entities/class_comunidad.dart';
 import '../../../domain/services/http_comunidades.dart';
 import '../../Widgets/Appbar.dart';
+import '../../Widgets/cards/species and comunity/community_card copy.dart';
 
 // ignore: camel_case_types
 class comunidades extends StatefulWidget {
@@ -13,11 +13,11 @@ class comunidades extends StatefulWidget {
   });
 
   @override
-  State<comunidades> createState() => _comunidadesState();
+  State<comunidades> createState() => _ComunidadesState();
 }
 
 // ignore: camel_case_types
-class _comunidadesState extends State<comunidades> {
+class _ComunidadesState extends State<comunidades> {
   Future<List<Community>>? comunidades;
 
   @override
@@ -33,11 +33,14 @@ class _comunidadesState extends State<comunidades> {
         context,
         'Comunidades',
         IconButton(
-            onPressed: () {
-              showSearch(
-                  context: context, delegate: SearchComunidadesDelegate());
-            },
-            icon: const Icon(Icons.search_rounded)),
+          onPressed: () {
+            showSearch(
+              context: context,
+              delegate: SearchComunidadesDelegate(),
+            );
+          },
+          icon: const Icon(Icons.search_rounded),
+        ),
         null,
       ),
       body: FutureBuilder<List<Community>>(
@@ -50,18 +53,29 @@ class _comunidadesState extends State<comunidades> {
           } else if (snapshot.hasData && snapshot.data != null) {
             List<Community> communityList = snapshot.data!;
             return ListView.builder(
-                itemCount: communityList.length,
-                itemBuilder: (context, index) {
+              itemCount: communityList.length,
+              itemBuilder: (context, index) {
+                final Community community = communityList[index];
+
+                // Verificar si hay una imagen válida
+                if (community.vcImage != null &&
+                    community.vcImage!.isNotEmpty) {
                   return SizedBox(
                     child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 1),
-                        child: CommunitieCard(
-                            communityList[index].idPuebloIndigena,
-                            communityList[index].vcNombre,
-                            communityList[index].createdAt.toString(),
-                            communityList[index].chEstado)),
+                      padding: const EdgeInsets.symmetric(horizontal: 1),
+                      child: CommunitieCard(
+                          community.idPuebloIndigena,
+                          community.vcNombre,
+                          community.createdAt.toString(),
+                          community.vcImage!),
+                    ),
                   );
-                });
+                } else {
+                  // No hay imagen, no mostrar la tarjeta
+                  return Container();
+                }
+              },
+            );
           } else {
             return const Center(
               child: Text('No hay datos'),
