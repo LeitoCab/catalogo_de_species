@@ -17,10 +17,10 @@ class Species extends Equatable {
   final String vcNombre;
   final String vcNombreCientifico;
   final String vcImagen;
+  final Taxa taxa;
   /* final String vcAno;
   final int idFamilia;
   final dynamic vcSonido;
-  final Taxa taxa;
   final List<dynamic> estadosConservacion;
   final DateTime fechaCreacion;
   final DateTime fechaModificacion;
@@ -31,10 +31,10 @@ class Species extends Equatable {
     required this.vcNombre,
     required this.vcNombreCientifico,
     required this.vcImagen,
+    required this.taxa,
     /* required this.vcAno,
     required this.idFamilia,
     required this.vcSonido,
-    required this.taxa,
     required this.estadosConservacion,
     required this.fechaCreacion,
     required this.fechaModificacion,
@@ -46,10 +46,10 @@ class Species extends Equatable {
         vcNombre: json["vc_nombre"],
         vcNombreCientifico: json["vc_nombre_cientifico"],
         vcImagen: json["vc_imagen"],
+        taxa: Taxa.fromJson(json["taxa"]),
         /*   vcAno: json["vc_ano"],
         idFamilia: json["id_familia"],
         vcSonido: json["vc_sonido"],
-        taxa: Taxa.fromJson(json["taxa"]),
         estadosConservacion:
             List<dynamic>.from(json["estados_conservacion"].map((x) => x)),
         fechaCreacion: DateTime.parse(json["fecha_creacion"]),
@@ -62,10 +62,10 @@ class Species extends Equatable {
         "vc_nombre": vcNombre,
         "vc_nombre_cientifico": vcNombreCientifico,
         "vc_imagen": vcImagen,
+        "taxa": taxa.toJson(),
         /* "vc_ano": vcAno,
         "id_familia": idFamilia,
         "vc_sonido": vcSonido,
-        "taxa": taxa.toJson(),
         "estados_conservacion":
             List<dynamic>.from(estadosConservacion.map((x) => x)),
         "fecha_creacion": fechaCreacion.toIso8601String(),
@@ -78,11 +78,11 @@ class Species extends Equatable {
         vcNombre,
         vcNombreCientifico,
         vcImagen,
+        taxa,
         /*  vcAno,
         idFamilia,
-        vcSonido,
-        taxa,
         estadosConservacion,
+        vcSonido,
         fechaCreacion,
         fechaModificacion,
         estado, */

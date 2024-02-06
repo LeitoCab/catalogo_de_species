@@ -8,7 +8,17 @@ import '../../Widgets/appbar.dart';
 
 class ViewEspecies extends StatefulWidget {
   final int index;
-  const ViewEspecies(this.index, {super.key});
+  final String titulo;
+  final String image;
+  final String descripcion;
+
+  const ViewEspecies(
+    this.index,
+    this.titulo,
+    this.image,
+    this.descripcion, {
+    super.key,
+  });
 
   @override
   State<ViewEspecies> createState() => _ViewEspeciesState();
@@ -17,6 +27,9 @@ class ViewEspecies extends StatefulWidget {
 class _ViewEspeciesState extends State<ViewEspecies> {
   Future<SpeciesId>? especiesId;
   int get index => widget.index;
+  String get titulo => widget.titulo;
+  String get image => widget.image;
+  String get descripcion => widget.descripcion;
   @override
   void initState() {
     super.initState();

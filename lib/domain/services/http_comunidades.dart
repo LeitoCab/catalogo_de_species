@@ -9,7 +9,7 @@ class ComunidadService {
   static Future<List<Community>> fetchCommunity({required int type}) async {
     try {
       final response = await http.get(Uri.parse(
-          'https://api.amazonia.iiap.gob.pe/api/v1/indigenous-community/1/15'));
+          'https://api.amazonia.iiap.gob.pe/api/v1/indigenous-community/1/16'));
 
       if (response.statusCode == 200) {
         Map<String, dynamic> result = json.decode(response.body);

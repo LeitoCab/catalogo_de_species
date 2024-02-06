@@ -45,8 +45,9 @@ class SearchComunidadesDelegate extends SearchDelegate {
                     child: CommunitieCard(
                         communityList[index].idPuebloIndigena,
                         communityList[index].vcNombre,
-                        communityList[index].createdAt.toString(),
-                        communityList[index].chEstado));
+                        communityList[index].deLatitud.toString(),
+                        communityList[index].deLongitud.toString(),
+                        communityList[index].vcImage));
               });
         } else {
           return const Center(

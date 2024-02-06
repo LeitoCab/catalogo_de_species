@@ -25,7 +25,12 @@ class CustomSpecieCommunitieCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ViewEspecies(index),
+              builder: (context) => ViewEspecies(
+                index,
+                titulo,
+                image,
+                subtitulo,
+              ),
             ),
           )
         },

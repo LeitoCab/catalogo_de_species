@@ -6,7 +6,11 @@ import '../../Widgets/Appbar.dart';
 
 class ViewComunidate extends StatefulWidget {
   final int index;
-  const ViewComunidate(this.index, {super.key});
+  final String titulo;
+  final String? image;
+  final String descripcion;
+  const ViewComunidate(this.index, this.titulo, this.image, this.descripcion,
+      {super.key});
 
   @override
   State<ViewComunidate> createState() => _ViewComunidateState();
@@ -15,6 +19,10 @@ class ViewComunidate extends StatefulWidget {
 class _ViewComunidateState extends State<ViewComunidate> {
   Future<ComunityId>? comunidadesId;
   int get index => widget.index;
+  String get titulo => widget.titulo;
+  String? get image => widget.image;
+  String get descripcion => widget.descripcion;
+
   @override
   void initState() {
     super.initState();
@@ -44,64 +52,66 @@ class _ViewComunidateState extends State<ViewComunidate> {
                   const SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: Container(
-                      decoration: ShapeDecoration(
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage('assets/indigenas.jpg'),
-                              fit: BoxFit.cover),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(7))),
-                      width: double.infinity,
-                      height: 250,
-                      child: Stack(
-                        alignment: Alignment.bottomRight,
-                        children: [
-                          Positioned(
-                              bottom: 7,
-                              right: 65,
-                              child: Material(
-                                borderRadius: BorderRadius.circular(9),
-                                child: InkWell(
+                  if (widget.image != null)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Container(
+                        decoration: ShapeDecoration(
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: Image.network(widget.image!).image,
+                                fit: BoxFit.cover),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(7))),
+                        width: double.infinity,
+                        height: 250,
+                        child: Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            Positioned(
+                                bottom: 7,
+                                right: 65,
+                                child: Material(
                                   borderRadius: BorderRadius.circular(9),
-                                  onTap: () {},
-                                  child: Ink(
-                                      height: 40,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(
-                                              221, 251, 216, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(9)),
-                                      child: const Icon(Icons.share_outlined)),
-                                ),
-                              )),
-                          Positioned(
-                              bottom: 7,
-                              right: 10,
-                              child: Material(
-                                borderRadius: BorderRadius.circular(9),
-                                child: InkWell(
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(9),
+                                    onTap: () {},
+                                    child: Ink(
+                                        height: 40,
+                                        width: 40,
+                                        decoration: BoxDecoration(
+                                            color: const Color.fromRGBO(
+                                                221, 251, 216, 1),
+                                            borderRadius:
+                                                BorderRadius.circular(9)),
+                                        child:
+                                            const Icon(Icons.share_outlined)),
+                                  ),
+                                )),
+                            Positioned(
+                                bottom: 7,
+                                right: 10,
+                                child: Material(
                                   borderRadius: BorderRadius.circular(9),
-                                  onTap: () {},
-                                  child: Ink(
-                                      height: 40,
-                                      width: 40,
-                                      decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(
-                                              221, 251, 216, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(9)),
-                                      child: const Icon(
-                                          Icons.file_download_outlined)),
-                                ),
-                              )),
-                        ],
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(9),
+                                    onTap: () {},
+                                    child: Ink(
+                                        height: 40,
+                                        width: 40,
+                                        decoration: BoxDecoration(
+                                            color: const Color.fromRGBO(
+                                                221, 251, 216, 1),
+                                            borderRadius:
+                                                BorderRadius.circular(9)),
+                                        child: const Icon(
+                                            Icons.file_download_outlined)),
+                                  ),
+                                )),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
                   ListTile(
                     title: Text(
                       snapshot.data!.vcNombre,

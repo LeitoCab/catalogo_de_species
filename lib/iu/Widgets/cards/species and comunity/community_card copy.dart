@@ -7,43 +7,45 @@ import 'package:flutter/material.dart';
 class CommunitieCard extends StatelessWidget {
   final int index;
   final String titulo;
-  final String subtitulo;
-  final String subtitulo2;
+
+  final String latitud;
+  final String longitud;
   final String? image;
 
   const CommunitieCard(
     this.index,
     this.titulo,
-    this.subtitulo,
-    this.subtitulo2, {
+    this.latitud,
+    this.longitud,
+    this.image, {
     super.key,
-    this.image,
   });
 
   @override
   Widget build(BuildContext context) {
-    print('subtitulo2: $subtitulo2');
-    print('image: $image');
     return Card(
-      elevation: 0.5,
-      child: InkWell(
-        splashColor: Colors.transparent,
-        borderRadius: BorderRadius.circular(15),
-        onTap: () => {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ViewComunidate(index)))
-        },
-        child: SizedBox(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15.0),
-            child: Row(
-              children: [
-                if (image == null)
-                  const Text('No hay imagen')
-                else
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Ink(
+        elevation: 0.5,
+        child: InkWell(
+          splashColor: Colors.transparent,
+          borderRadius: BorderRadius.circular(15),
+          onTap: () => {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ViewComunidate(index, 'titulo', image, 'descripcion')))
+          },
+          child: SizedBox(
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10),
+              child: Row(
+                children: [
+                  if (image == null)
+                    const Icon(Icons.image_not_supported,
+                        size: 62, color: Colors.orange)
+                  else
+                    Ink(
                       width: 62,
                       height: 62,
                       decoration: ShapeDecoration(
@@ -58,32 +60,33 @@ class CommunitieCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                  const SizedBox(
+                    width: 15,
                   ),
-                const SizedBox(
-                  width: 15,
-                ),
-                Wrap(direction: Axis.vertical, children: [
-                  Text(titulo,
+                  Wrap(direction: Axis.vertical, children: [
+                    Text(titulo,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontFamily: 'Roboto',
+                          fontWeight: FontWeight.bold,
+                        )),
+                    Text(
+                      'Latitud: $latitud',
                       style: const TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.bold,
-                      )),
-                  Text(
-                    subtitulo,
-                  ),
-                  Text(
-                    subtitulo2,
-                    style: const TextStyle(
-                      fontSize: 7,
+                        fontSize: 10,
+                      ),
                     ),
-                  )
-                ]),
-              ],
+                    Text(
+                      'Longitud: $longitud',
+                      style: const TextStyle(
+                        fontSize: 10,
+                      ),
+                    )
+                  ]),
+                ],
+              ),
             ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

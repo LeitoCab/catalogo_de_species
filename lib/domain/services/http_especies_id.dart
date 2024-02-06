@@ -8,6 +8,7 @@ class EspecieIdService {
   Future<SpeciesId> fetchSpeciesID(int index) async {
     final response = await http.get(
         Uri.parse('https://api.amazonia.iiap.gob.pe/api/v1/species/$index'));
+    print(response.body);
 
     if (response.statusCode == 200) {
       // Si el servidor devuelve una repuesta OK, parseamos el JSON

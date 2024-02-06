@@ -1,10 +1,11 @@
+import 'package:catalogo_species/domain/entities/class_especies.dart';
 import 'package:flutter/material.dart';
 
 class ComunidadesCard extends StatelessWidget {
   final String image;
   final String title;
   final String subtitle;
-  final String tipo;
+  final Taxa tipo;
   const ComunidadesCard(this.image, this.title, this.subtitle, this.tipo,
       {super.key});
 
@@ -104,7 +105,7 @@ class ComunidadesCard extends StatelessWidget {
                           color: Colors.white, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      tipo,
+                      tipo.vcNombre,
                       style: const TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w600),
                     ),

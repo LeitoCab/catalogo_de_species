@@ -111,10 +111,10 @@ class _HomepageState extends State<Homepage> {
                           ),
                           itemBuilder: (_, index, realIndex) {
                             return ComunidadesCard(
-                              'speciesPorEstado[index].vcImagen',
+                              speciesPorEstado[index].vcImagen,
                               speciesPorEstado[index].vcNombre,
                               speciesPorEstado[index].vcNombreCientifico,
-                              'speciesPorEstado[index].estado',
+                              speciesPorEstado[index].taxa,
                             );
                           },
                         ),

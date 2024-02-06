@@ -4,8 +4,8 @@ import '../entities/class_especies_conservacion.dart';
 class EstadosconservacionService {
   static Future<List<EstadosConservacion>> fetchStadosconservacion() async {
     try {
-      final response = await http
-          .get(Uri.parse('https://api.amazonia.iiap.gob.pe/api/v1/status'));
+      final response = await http.get(Uri.parse(
+          'https://api.amazonia.iiap.gob.pe/api/v1/species/est_conservacion'));
 
       if (response.statusCode == 200) {
         return EstadosConservacionFromJson(response.body);

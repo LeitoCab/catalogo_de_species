@@ -58,22 +58,17 @@ class _ComunidadesState extends State<comunidades> {
                 final Community community = communityList[index];
 
                 // Verificar si hay una imagen válida
-                if (community.vcImage != null &&
-                    community.vcImage!.isNotEmpty) {
-                  return SizedBox(
-                    child: Padding(
+
+                return SizedBox(
+                  child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
                       child: CommunitieCard(
                           community.idPuebloIndigena,
                           community.vcNombre,
-                          community.createdAt.toString(),
-                          community.vcImage!),
-                    ),
-                  );
-                } else {
-                  // No hay imagen, no mostrar la tarjeta
-                  return Container();
-                }
+                          community.deLatitud.toString(),
+                          community.deLongitud.toString(),
+                          community.vcImage)),
+                );
               },
             );
           } else {
